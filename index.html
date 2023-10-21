@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login System</title>
+  <style type="text/css">
+    html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: darkblue;
+}
+
+#main-holder {
+  width: 33%;
+  height: 40%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: skyblue;
+  border-radius: 7px;
+  box-shadow: 0px 0px 5px 2px black;
+}
+
+#login-error-msg-holder {
+  width: 70%;
+  height: 70%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+#login-error-msg {
+  width: 100%;
+  text-align: center;
+  margin-bottom: -28px;
+  padding: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: red;
+  opacity: 0;
+}
+#login-form {
+  align-self: flex-start;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.login-form-field::placeholder {
+  color: #0033cc;
+}
+
+.login-form-field {
+  border: none;
+  border-bottom: 1px solid #0033cc;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  outline: none;
+  padding: 0px 0px 5px 5px;
+  width: 200px;
+  height: 30px;
+}
+#login-header{
+  font-family: Khmer OS Muol;
+  margin-bottom: -70px;
+}
+
+#login-form-submit {
+  width: 50%;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background-color: green;
+  cursor: pointer;
+  outline: none;
+}
+#login-form-submit:hover {
+    transform: scale(1.1);
+}
+</style>
+
+</head>
+
+<body>
+  <main id="main-holder">
+    <h1 id="login-header">ចូលប្រើប្រាស់ប្រព័ន្ធ/GROUP4</h1>
+
+    
+    <div id="login-error-msg-holder">
+      <p id="login-error-msg">Username <span id="error-msg-second-line">ឬPassword មិនត្រឹមត្រូវ</span></p>
+    </div>
+    
+    <form id="login-form">
+      <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+      <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+      <input type="submit" value="ចូល" id="login-form-submit">
+    </form>
+  </main>
+
+
+  <script type="text/javascript">
+      const formlog = document.getElementById("login-form");
+      const BtnLog = document.getElementById("login-form-submit");
+      const ErrorMessage = document.getElementById("login-error-msg");
+
+BtnLog.addEventListener("click", (e) => {
+    e.preventDefault();
+    const username = formlog.username.value;
+    const password = formlog.password.value;
+
+    if (username === "admin" && password === "123") {
+        alert("អ្នកបានចូលដោយជោគជ័យ");
+        location.assign("main.html");
+    } else {
+        ErrorMessage.style.opacity = 1;
+    }
+})
+    </script>
+</body>
+
+</html>
